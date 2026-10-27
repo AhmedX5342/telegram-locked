@@ -1675,42 +1675,7 @@ export class InternalLinkProcessor {
   };
 
   public processInternalLink(link: InternalLink) {
-    const map: {
-      [key in InternalLink['_']]?: (link: any) => any
-    } = {
-      [INTERNAL_LINK_TYPE.MESSAGE]: this.processMessageLink,
-      [INTERNAL_LINK_TYPE.PRIVATE_POST]: this.processPrivatePostLink,
-      [INTERNAL_LINK_TYPE.EMOJI_SET]: this.processStickerSetLink,
-      [INTERNAL_LINK_TYPE.STICKER_SET]: this.processStickerSetLink,
-      [INTERNAL_LINK_TYPE.JOIN_CHAT]: this.processJoinChatLink,
-      [INTERNAL_LINK_TYPE.VOICE_CHAT]: this.processVoiceChatLink,
-      [INTERNAL_LINK_TYPE.USER_PHONE_NUMBER]: this.processUserPhoneNumberLink,
-      [INTERNAL_LINK_TYPE.INVOICE]: this.processInvoiceLink,
-      [INTERNAL_LINK_TYPE.ATTACH_MENU_BOT]: this.processAttachMenuBotLink,
-      [INTERNAL_LINK_TYPE.WEB_APP]: this.processWebAppLink,
-      [INTERNAL_LINK_TYPE.ADD_LIST]: this.processListLink,
-      [INTERNAL_LINK_TYPE.STORY]: this.processStoryLink,
-      [INTERNAL_LINK_TYPE.BOOST]: this.processBoostLink,
-      [INTERNAL_LINK_TYPE.PREMIUM_FEATURES]: this.processPremiumFeaturesLink,
-      [INTERNAL_LINK_TYPE.GIFT_CODE]: this.processGiftCodeLink,
-      [INTERNAL_LINK_TYPE.BUSINESS_CHAT]: this.processBusinessChatLink,
-      [INTERNAL_LINK_TYPE.STARS_TOPUP]: this.processStarsTopupLink,
-      [INTERNAL_LINK_TYPE.SHARE]: this.processShareLink,
-      [INTERNAL_LINK_TYPE.UNIQUE_STAR_GIFT]: this.processUniqueStarGiftLink,
-      [INTERNAL_LINK_TYPE.STAR_GIFT_COLLECTION]: this.processStarGiftCollectionLink,
-      [INTERNAL_LINK_TYPE.STORY_ALBUM]: this.processStoryAlbumLink,
-      [INTERNAL_LINK_TYPE.INSTANT_VIEW]: this.processInstantViewLink,
-      [INTERNAL_LINK_TYPE.CONFERENCE_CALL]: this.processConferenceCallLink,
-      [INTERNAL_LINK_TYPE.ADD_AI_STYLE]: this.processAddAiStyleLink
-    };
-
-    const processor = map[link._];
-    if(!processor) {
-      console.warn('Not supported internal link:', link);
-      return;
-    }
-
-    return processor(link);
+      return Promise.resolve(false);
   }
 }
 

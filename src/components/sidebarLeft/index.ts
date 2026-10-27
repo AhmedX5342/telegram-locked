@@ -174,7 +174,7 @@ export class AppSidebarLeft extends SidebarSlider {
     this.inputSearch = new InputSearch({oldStyle: true, placeholder: Modes.a11y ? 'Search' : undefined});
     if(!Modes.a11y) (this.inputSearch.input as HTMLInputElement).placeholder = ' ';
     const sidebarHeader = this.sidebarEl.querySelector('.item-main .sidebar-header');
-    sidebarHeader.append(this.inputSearch.container);
+    // sidebarHeader.append(this.inputSearch.container);
 
     this.backBtn = this.sidebarEl.querySelector('.sidebar-back-button') as HTMLButtonElement;
     this.backBtn.setAttribute('aria-label', I18n.format('StarsRating.Back', true));

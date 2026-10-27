@@ -704,17 +704,7 @@ export class AppChatsManager extends AppManager {
   }
 
   public joinChannel(id: ChatId) {
-    return this.apiManager.invokeApi('channels.joinChannel', {
-      channel: this.getChannelInput(id)
-    }).then((result) => {
-      const processed = this.processChatInviteJoinResult(result, id.toPeerId(true));
-      // A guard-bot join has no updates until its WebView reaches a decision.
-      if(processed._ === 'chatInviteJoinWebView') {
-        return processed;
-      }
-
-      this.onChatUpdated(id, processed);
-    });
+   return ;
   }
 
   public addToChat(id: ChatId, userId: UserId | UserId[]) {
